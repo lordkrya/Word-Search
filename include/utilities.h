@@ -63,15 +63,11 @@ T getSth(std::istream &fin, std::string err = "") {
  * @throw std::logic_error Invalid value of allocated memory
  */
 template <typename T>
-T *resize(T *arr, int oldSize, int newSize) {
+T *resize(T *arr, size_t oldSize, size_t newSize) {
     if (arr == nullptr) throw std::logic_error("A null pointer was received");
-    if (newSize <= 0) throw std::logic_error("Invalid memory allocation value");
-    if (oldSize <= 0) throw std::logic_error("Invalid value of allocated memory");
 
     T *newArr = new T[newSize] {};
-
-    if (oldSize <= newSize) std::copy(arr, arr + oldSize, newArr);
-    else std::copy(arr, arr + newSize, newArr);
+    std::copy(arr, arr + std::min(oldSize, newSize), newArr);
 
     delete[] arr;
     return newArr;

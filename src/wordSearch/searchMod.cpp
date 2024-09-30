@@ -1,14 +1,14 @@
-#include "search.h"
+#include "../../include/search.h"
 
 
 void getWord(const std::vector<std::vector<char>> &mtx, std::vector<std::string> &arr, int x1, int y1, int x2, int y2) {
-    int mx = (x2 > x1 ? x2 - x1 : y2 - y1) + 1;
+    size_t mx = (x2 > x1 ? x2 - x1 : y2 - y1) + 1;
     int dx = (x2 > x1 ? 1 : 0), dy = (y2 > y1 ? 1 : 0);
     std::string newStr = {};
     newStr.reserve(mx);
     char sym = 0;
 
-    for (int i = 0; i < mx; i++) {
+    for (size_t i = 0; i < mx; i++) {
         sym = mtx[x1 + dx*i][y1 + dy*i];
         if (sym == '\0') break;
         newStr.push_back(sym);
@@ -22,21 +22,21 @@ void getWord(const std::vector<std::vector<char>> &mtx, std::vector<std::string>
 }
 
 void sectionSelect(const std::vector<std::vector<char>> &mtx, std::vector<std::string> &arr, int x1, int y1) {
-    for (int d = 1; x1 + d < static_cast<int>(mtx[0].size()); d++) {
+    for (size_t d = 1; x1 + d < mtx[0].size(); d++) {
         getWord(mtx, arr, x1, y1, x1 + d, y1);
-        if (y1 + d < static_cast<int>(mtx.size())) {
+        if (y1 + d < mtx.size()) {
             getWord(mtx, arr, x1, y1, x1 + d, y1 + d);
         }
     }
-    for (int d = 1; y1 + d < static_cast<int>(mtx.size()); d++) {
+    for (size_t d = 1; y1 + d < mtx.size(); d++) {
         getWord(mtx, arr, x1, y1, x1, y1 + d);
     }
 }
 
 std::vector<std::string> pointSelect(const std::vector<std::vector<char>> &mtx) {
     std::vector<std::string> arr = {};
-    for (int y1 = 0; y1 < static_cast<int>(mtx.size()); y1++) {
-        for (int x1 = 0; x1 < static_cast<int>(mtx[0].size()); x1++) {
+    for (size_t y1 = 0; y1 < mtx.size(); y1++) {
+        for (size_t x1 = 0; x1 < mtx[0].size(); x1++) {
             sectionSelect(mtx, arr, x1, y1);
         }
     }
@@ -77,8 +77,7 @@ bool checkDictionary(const std::string str) {
 }
 
 std::vector<std::string> search(const std::vector<std::vector<char>> &mtx) {
-    std::vector<std::string> arr;
-    arr = pointSelect(mtx);
+    std::vector<std::string> arr = pointSelect(mtx);
 
     return arr;
 }

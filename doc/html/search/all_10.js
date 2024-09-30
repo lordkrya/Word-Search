@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wordsearch_0',['wordSearch',['../namespaceword_search.html',1,'']]]
+  ['доступные_20флаги_20компиляции_0',['Доступные флаги компиляции',['../index.html#autotoc_md3',1,'']]]
 ];

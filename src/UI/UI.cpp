@@ -1,5 +1,4 @@
-#include <algorithm>
-#include "UI.h"
+#include "../../include/UI.h"
 
 #ifndef SEARCHMOD_UI
 using differentMatrix::Matrix, differentMatrix::Strs;

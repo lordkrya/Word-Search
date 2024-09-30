@@ -5,8 +5,9 @@
 
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 
-#include "../utilities/utilities.h"
+#include "utilities.h"
 
 /** 
  * @addtogroup libDifferentMatrix
@@ -58,7 +59,7 @@ void addStrings(Strs &arr, const char *str);
  * @return char* The resulting string
  * @throw std::logic_error Invalid string number
  */
-char *getStrings(const Strs &arr, int num);
+char *getStrings(const Strs &arr, unsigned int num);
 
 /**
  * @brief Get the number of strings
@@ -66,7 +67,7 @@ char *getStrings(const Strs &arr, int num);
  * @param arr Pointer to the strings structure
  * @return int Number of strings
  */
-int getNumStrings(const Strs &arr);
+size_t getNumStrings(const Strs &arr);
 
 /**
  * @brief Strings output in std::cout
@@ -74,7 +75,7 @@ int getNumStrings(const Strs &arr);
  * @param arr Pointer to the strings structure
  * @throw std::logic_error The value of the nullptr strings
  */
-void printStrings(const Strs *arr);
+void printStrings(const Strs *arr, std::ostream &fout);
 
 }
 /// @} End of Doxygen Groups

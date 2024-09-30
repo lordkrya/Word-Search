@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bug_20list_0',['Bug List',['../bug.html',1,'']]]
+  ['differentmatrix_0',['differentMatrix',['../namespacedifferent_matrix.html',1,'']]]
 ];

@@ -22,22 +22,22 @@ add_subdirectory(tests)
 
 
 add_library(utilities ${BUILD_TYPE_LIBS}
-	src/utilities/utilities.h
+	include/utilities.h
 	src/utilities/utilities.cpp
 )
 add_library(differentMatrix ${BUILD_TYPE_LIBS}
-	src/differentMatrix/matrix.h
+	include/matrix.h
+	include/strings.h
 	src/differentMatrix/matrix.cpp
-	src/differentMatrix/strings.h
 	src/differentMatrix/strings.cpp
 )
 add_library(wordSearch ${BUILD_TYPE_LIBS}
-	src/wordSearch/search.h
+	include/search.h
 	src/wordSearch/search.cpp
 	src/wordSearch/searchMod.cpp
 )
 add_library(UI ${BUILD_TYPE_LIBS}
-	src/UI/UI.h
+	include/UI.h
 	src/UI/UI.cpp
 	src/UI/UIMod.cpp
 )
@@ -52,12 +52,10 @@ target_link_libraries(differentMatrix
 target_link_libraries(wordSearch
 	PRIVATE differentMatrix
 )
-
 target_link_libraries(UI
 	PRIVATE differentMatrix
 	PRIVATE wordSearch
 )
-
 target_link_libraries(lab1cpp
 	PRIVATE UI
 )

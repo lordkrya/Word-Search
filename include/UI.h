@@ -1,7 +1,7 @@
 #ifndef UI_DEFENDER
 #define UI_DEFENDER
 
-#include "../wordSearch/search.h"
+#include "search.h"
 
 
 namespace UI {

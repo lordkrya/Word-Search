@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utilities_0',['utilities',['../namespaceutilities.html',1,'']]]
+  ['вариативность_20контейнеров_0',['Вариативность контейнеров',['../index.html#autotoc_md2',1,'']]]
 ];

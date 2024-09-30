@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Word Search: C:/Users/lord-/VirtualBox VMs/shared-folder/oop2024/1/src/utilities/utilities.h Source File</title>
+<title>Word Search: C:/Users/lord-/VirtualBox VMs/shared-folder/oop2024/1/include/utilities.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7b5d38f1875f1b693f62ca6a108a1129.html">utilities</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -99,7 +99,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutilities.html">utilities</a> {</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceutilities.html">   17</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceutilities.html">utilities</a> {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
@@ -124,29 +125,26 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespaceutilities.html#ab6bfdd78ba4edc58530647b319164552">   66</a></span>T *<a class="code hl_function" href="namespaceutilities.html#ab6bfdd78ba4edc58530647b319164552">resize</a>(T *arr, <span class="keywordtype">int</span> oldSize, <span class="keywordtype">int</span> newSize) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespaceutilities.html#a7beae55cc30de7caa28b3e5c0f84cd54">   66</a></span>T *<a class="code hl_function" href="namespaceutilities.html#a7beae55cc30de7caa28b3e5c0f84cd54">resize</a>(T *arr, <span class="keywordtype">size_t</span> oldSize, <span class="keywordtype">size_t</span> newSize) {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">if</span> (arr == <span class="keyword">nullptr</span>) <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;A null pointer was received&quot;</span>);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span> (newSize &lt;= 0) <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Invalid memory allocation value&quot;</span>);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">if</span> (oldSize &lt;= 0) <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Invalid value of allocated memory&quot;</span>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    T *newArr = <span class="keyword">new</span> T[newSize] {};</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span> (oldSize &lt;= newSize) std::copy(arr, arr + oldSize, newArr);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">else</span> std::copy(arr, arr + newSize, newArr);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">delete</span>[] arr;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">return</span> newArr;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    T *newArr = <span class="keyword">new</span> T[newSize] {};</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::copy(arr, arr + std::min(oldSize, newSize), newArr);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">delete</span>[] arr;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">return</span> newArr;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">char</span> *<a class="code hl_function" href="namespaceutilities.html#a19dd86e2bff233c5445f954ca141eca6">newStrdup</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespaceutilities_html"><div class="ttname"><a href="namespaceutilities.html">utilities</a></div><div class="ttdoc">A library with a set of useful functions used in the project.</div><div class="ttdef"><b>Definition</b> utilities.cpp:3</div></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">char</span> *<a class="code hl_function" href="namespaceutilities.html#a19dd86e2bff233c5445f954ca141eca6">newStrdup</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespaceutilities_html"><div class="ttname"><a href="namespaceutilities.html">utilities</a></div><div class="ttdoc">A library with a set of useful functions used in the project.</div><div class="ttdef"><b>Definition</b> utilities.h:17</div></div>
 <div class="ttc" id="anamespaceutilities_html_a19dd86e2bff233c5445f954ca141eca6"><div class="ttname"><a href="namespaceutilities.html#a19dd86e2bff233c5445f954ca141eca6">utilities::newStrdup</a></div><div class="ttdeci">char * newStrdup(const char *str)</div><div class="ttdoc">The self-written strdup() function.</div><div class="ttdef"><b>Definition</b> utilities.cpp:5</div></div>
-<div class="ttc" id="anamespaceutilities_html_ab6bfdd78ba4edc58530647b319164552"><div class="ttname"><a href="namespaceutilities.html#ab6bfdd78ba4edc58530647b319164552">utilities::resize</a></div><div class="ttdeci">T * resize(T *arr, int oldSize, int newSize)</div><div class="ttdoc">The self-written realloc() function.</div><div class="ttdef"><b>Definition</b> utilities.h:66</div></div>
+<div class="ttc" id="anamespaceutilities_html_a7beae55cc30de7caa28b3e5c0f84cd54"><div class="ttname"><a href="namespaceutilities.html#a7beae55cc30de7caa28b3e5c0f84cd54">utilities::resize</a></div><div class="ttdeci">T * resize(T *arr, size_t oldSize, size_t newSize)</div><div class="ttdoc">The self-written realloc() function.</div><div class="ttdef"><b>Definition</b> utilities.h:66</div></div>
 <div class="ttc" id="anamespaceutilities_html_accc615428f0a71718dbf34c1bff76e84"><div class="ttname"><a href="namespaceutilities.html#accc615428f0a71718dbf34c1bff76e84">utilities::getSth</a></div><div class="ttdeci">T getSth(std::istream &amp;fin, std::string err=&quot;&quot;)</div><div class="ttdoc">Reads a specific type of data from a stream.</div><div class="ttdef"><b>Definition</b> utilities.h:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

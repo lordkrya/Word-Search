@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['22_0',['Вариант 22',['../index.html#autotoc_md1',1,'']]]
+  ['bug_20list_0',['Bug List',['../bug.html',1,'']]]
 ];

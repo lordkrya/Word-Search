@@ -1,4 +1,4 @@
-#include "strings.h"
+#include "../../include/strings.h"
 
 using utilities::newStrdup, utilities::resize;
 
@@ -13,8 +13,8 @@ namespace differentMatrix{
  */
 struct Strs {
     char **data;
-    int size = 0;                       //< Number of strings
-    int capacity = DEFAULT_CAPACITY;    //< Minimum allocated memory for an array of strings
+    size_t size = 0;                       //< Number of strings
+    size_t capacity = DEFAULT_CAPACITY;    //< Minimum allocated memory for an array of strings
 };
 
 
@@ -24,7 +24,7 @@ Strs *createStrings() {
         arr->data = new char*[DEFAULT_CAPACITY] {};
     }
     catch (...) {
-        delete[] arr->data;
+        delete arr;
         throw;
     }
 
@@ -52,18 +52,18 @@ void addStrings(Strs &arr, const char *str) {
     arr.size++;
 }
 
-char *getStrings(const Strs &arr, int num) {
-    if (num < 0 || num >= arr.size) throw std::logic_error("Invalid string number");
+char *getStrings(const Strs &arr, unsigned int num) {
+    if (num >= arr.size) throw std::logic_error("Invalid string number");
     return arr.data[num];
 }
 
-int getNumStrings(const Strs &arr) {
+size_t getNumStrings(const Strs &arr) {
     return arr.size;
 }
 
-void printStrings(const Strs *arr) {
+void printStrings(const Strs *arr, std::ostream &fout = std::cout) {
     if (arr == nullptr) throw std::logic_error("The value of the nullptr strings");
-    std::for_each(arr->data, arr->data + arr->size, [] (const char *str) {std::cout << str << std::endl;});
+    std::for_each(arr->data, arr->data + arr->size, [&fout] (const char *str) {fout << str << std::endl;});
 }
 
 }

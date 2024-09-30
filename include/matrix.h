@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 
 /** 
  * @addtogroup libDifferentMatrix
@@ -29,10 +30,9 @@ struct Matrix;
  * @param m The number of rows
  * @param n The number of columns
  * @return Matrix* the fields m, n correspond to the arguments, iterator = 0, all characters will have the state '\o'
- * @throw std::logic_error Invalid row or column value
  * @throw std::bad_alloc When memory is not allocated by the NEW operator
  */
-Matrix *craeteMatrix(int m, int n);
+Matrix *craeteMatrix(unsigned int m, unsigned int n);
 
 /**
  * @brief Frees up the allocated memory with the function create
@@ -61,7 +61,7 @@ void addMatrix(Matrix &mtx, char x);
  * @param y Y coordinate
  * @throw std::logic_error Invalid coordinate value in the matrix
  */
-void addMatrix(Matrix &mtx, char c, int x, int y);
+void addMatrix(Matrix &mtx, char c, unsigned int x, unsigned int y);
 
 /**
  * @brief Get the number of rows, that is, the m field
@@ -69,7 +69,7 @@ void addMatrix(Matrix &mtx, char c, int x, int y);
  * @param mtx Pointer to the matrix structure
  * @return int Number of rows
  */
-int getCountStrs(const Matrix &mtx);
+size_t getCountStrs(const Matrix &mtx);
 
 /**
  * @brief Get the number of column, that is, the n field
@@ -77,7 +77,7 @@ int getCountStrs(const Matrix &mtx);
  * @param mtx Pointer to the matrix structure
  * @return int Number of column
  */
-int getCountColumn(const Matrix &mtx);
+size_t getCountColumn(const Matrix &mtx);
 
 /**
  * @brief Get a symbol with x, y coordinates
@@ -88,7 +88,7 @@ int getCountColumn(const Matrix &mtx);
  * @return char The symbol itself
  * @throw std::logic_error Invalid coordinate value in the matrix
  */
-char getElement(const Matrix &mtx, int x, int y);
+char getElement(const Matrix &mtx, unsigned int x, unsigned int y);
 
 /**
  * @brief Matrix output in std::cout
@@ -98,7 +98,7 @@ char getElement(const Matrix &mtx, int x, int y);
  * 
  * @bug If '\0' is found in the row, then the output of this line will stop
  */
-void printMatrix(const Matrix *mtx);
+void printMatrix(const Matrix *mtx, std::ostream &fout);
 
 }
 /// @}

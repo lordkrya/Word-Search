@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Word Search: Лабораторная работа 1: основы С++</title>
+<title>Word Search: Проект Word Search</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,21 +85,31 @@ $(function(){ initResizable(false); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Лабораторная работа 1: основы С++ </div></div>
+  <div class="headertitle"><div class="title">Проект Word Search </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__c_1_2_users_2lord-_2_virtual_box_01_v_ms_2shared-folder_2oop2024_21_2_r_e_a_d_m_e"></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Вариант 22</h1>
-<p>Реализовать функцию разгадывания головоломок «word search». На вход функции передаётся прямоугольная матрица символов, представляющая игровое поле головоломки. В качестве результата вернуть массив слов, найденных в матрице. Список всех известных слов допускается разместить в коде или вынести во внешний файл. Опционально — реализовать на русском языке.</p>
+Описание</h1>
+<p>Реализована библиотека (а вместе с ней и UI) разгадывающая головоломоку «word search». На вход функции из libWordSearch передаётся прямоугольная матрица символов, представляющая игровое поле головоломки. Матрица может быть реализована как вектор векторов, содержащих символы, так и с помощью самописного контейнера: Matrix. В качестве результата возвращается массив слов, найденных в матрице. Это может быть вектор строк или также самописный контейнер Strs. Список всех известных слов размещаются во внешнем файле: share/dictionary.txt, этот путь можно изменить в заголовочном файле: src/searchWord/search.h.</p>
 <p>Например, в качестве матрицы может передаваться следующее значение: </p><pre class="fragment">m   o   m
 
 c   a   t
 
 y   e   r
-</pre><p>В данном случае в качестве результата нужно вернуть слова «mom», «cat», «at» и «ram» (в зависимости от набора известных программе слов). Реализовать 2 перегрузки описанной функции:</p><ol type="1">
-<li>Принимает на вход матрицу в виде указателя (const char**) и размеров, возвращает массив C-style строк (const char**).</li>
-<li>Принимает на вход матрицу в виде экземпляра класса std::vector (std::vector&lt;std::vector&lt;char&gt;&gt;), возвращает вектор экземпляров класса std::string (std::vector&lt;std::string&gt;). </li>
+</pre><p>В данном случае в качестве результата будут получены слудующие слова: «mom», «cat», «at» и «ram» (в зависимости от набора известных программе слов). НЕОБХОДИМО самим вписать известные слова для поиска.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Вариативность контейнеров</h1>
+<p>Как уже было упомянуто, можно использовать разную реализацию функции в зависимости от используемого контейнера. Прототипы данных функций: (подробнее найдёте в документации doc/html/index.h)</p><ol type="1">
+<li>Принимает на вход матрицу в виде указателя на структуру (Matrix *), возвращает массив строк основанный на структуре (Strs *).</li>
+<li>Принимает на вход матрицу в виде экземпляра класса std::vector (std::vector&lt;std::vector&lt;char&gt;&gt;), возвращает вектор экземпляров класса std::string (std::vector&lt;std::string&gt;).</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Доступные флаги компиляции</h1>
+<ol type="1">
+<li>SHARED_LIBS - Создание динамических библиотек - Изначально: TRUE</li>
+<li>SEARCH_MOD - Использование встроенных контейнеров - Изначально: TRUE (Влияет на компиляцию библиотеки UI.)</li>
+<li>TESTING_MOD - Компиляция тестов - Изначально: TRUE (Убедитесь, что в файле tests/CMakeLists.txt указан верный путь к утилитке Catch2.) </li>
 </ol>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>

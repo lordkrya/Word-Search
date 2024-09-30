@@ -8,8 +8,8 @@
 #include <fstream>
 #include <vector>
 
-#include "../differentMatrix/matrix.h"
-#include "../differentMatrix/strings.h"
+#include "matrix.h"
+#include "strings.h"
 
 
 /**
