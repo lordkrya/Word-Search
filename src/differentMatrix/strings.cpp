@@ -1,4 +1,4 @@
-#include "../../include/strings.h"
+#include "strings.h"
 
 using utilities::newStrdup, utilities::resize;
 

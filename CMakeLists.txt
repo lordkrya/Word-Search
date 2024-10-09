@@ -21,6 +21,8 @@ endif()
 add_subdirectory(tests)
 
 
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
 add_library(utilities ${BUILD_TYPE_LIBS}
 	include/utilities.h
 	src/utilities/utilities.cpp

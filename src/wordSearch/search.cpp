@@ -1,4 +1,4 @@
-#include "../../include/search.h"
+#include "search.h"
 
 using differentMatrix::Matrix, differentMatrix::Strs;
 using differentMatrix::createStrings, differentMatrix::addStrings, differentMatrix::getElement, differentMatrix::freeStrings;

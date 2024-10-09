@@ -1,7 +1,7 @@
 # Для формирования отчёта: gcovr -r ../.. -e CMakeFiles --html-details -o coverage.html
 
 if(TESTING_MOD)
-	find_package(Catch2 REQUIRED PATHS "../../../lib/Catch2")
+	find_package(Catch2 REQUIRED)
 	add_compile_options(-fprofile-arcs -ftest-coverage)
 	link_libraries(gcov)
 

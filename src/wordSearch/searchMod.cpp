@@ -1,4 +1,4 @@
-#include "../../include/search.h"
+#include "search.h"
 
 
 void getWord(const std::vector<std::vector<char>> &mtx, std::vector<std::string> &arr, int x1, int y1, int x2, int y2) {
